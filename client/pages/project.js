@@ -75,7 +75,7 @@ const project = () => {
                                             <h1 className="title-font text-lg font-medium text-gray-900 mb-3">{e.name}</h1>
                                             <p className="leading-relaxed mb-3">{e.about}</p>
                                             <div className="flex items-center flex-wrap ">
-                                                <a target="_blank" rel="noopener norefferer" href={e.url} className="text-white inline-flex items-center md:mb-2 lg:mb-0 bg-indigo-500 p-2 w-full rounded-full justify-center">View Project
+                                                <a href={e.url} className="text-white inline-flex items-center md:mb-2 lg:mb-0 bg-indigo-500 p-2 w-full rounded-full justify-center">View Project
 
                                                     <svg className="w-4 h-4 ml-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
