@@ -14,8 +14,8 @@ module.exports = {
     return [
       {
         source: '/:path*',
-        // destination: 'https://backend.nirajchaurasiya.com/:path*',
-        destination: 'http://localhost:5000/:path*',
+        destination: 'https://backend.nirajchaurasiya.com/:path*',
+        // destination: 'http://localhost:5000/:path*',
       },
     ]
   }
