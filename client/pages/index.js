@@ -97,38 +97,8 @@ const index = () => {
           </div>
         </center>
 
-        <section className="text-gray-600 body-font" id="2nd">
-          <div className="container px-5 py-24 mx-auto">
-            <h1 className="text-3xl font-medium title-font mb-12 text-center text-white">MY <span className='text-indigo-700'>PROJECTS</span></h1>
-            <div className="flex flex-wrap -m-4">
 
-              {project.map((e) => {
-                return (
-                  <div className="p-4 md:w-1/3" key={e}>
-                    <div className="h-full border-2 border-gray-500 border-opacity-60 rounded-lg overflow-hidden">
-                      <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={e.imgUrl} alt="blog" />
-                      <div className="p-6">
-                        <h1 className="title-font text-lg font-medium text-gray-100 mb-3">{e.name}</h1>
-                        <p className="leading-relaxed mb-3 text-gray-300">{e.about}</p>
-                        <div className="flex items-center flex-wrap ">
-                          <Link passHref href={e.url} rel="noreferrer" className="text-white inline-flex items-center md:mb-2 lg:mb-0 bg-indigo-500 p-2 w-full rounded-full justify-center hover:text-indigo-100">
-                            View Project
-                            <svg className="w-4 h-4 ml-2" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                              <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                          </Link>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-        <h1 className="text-3xl font-medium title-font mb-12 text-center text-white">MY <span className='text-indigo-700'>SKILLS</span></h1>
+        <h1 className="text-3xl font-medium title-font text-center mt-12 text-white">MY <span className='text-indigo-700'>SKILLS</span></h1>
         <div className="flex flex-wrap gap-4 lg:justify-evenly mb-12">
           <div className=" rounded-lg p-4">
             <h2 className="text-lg font-bold mb-2 text-white">Frontend</h2>
@@ -163,8 +133,40 @@ const index = () => {
           </div>
 
         </div>
+        <div className='border-t mb-12 mt-12 w-[80vw] m-auto border-t-gray-600'>
 
+        </div>
+        <section className="text-gray-600 body-font" id="2nd">
+          <div className="container px-5 py-12 mx-auto">
+            <h1 className="text-3xl font-medium title-font mb-12 text-center text-white">MY <span className='text-indigo-700'>PROJECTS</span></h1>
+            <div className="flex flex-wrap -m-4">
 
+              {project.map((e) => {
+                return (
+                  <div className="p-4 md:w-1/3" key={e}>
+                    <div className="h-full border-2 border-gray-500 border-opacity-60 rounded-lg overflow-hidden">
+                      <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={e.imgUrl} alt="blog" />
+                      <div className="p-6">
+                        <h1 className="title-font text-lg font-medium text-gray-100 mb-3">{e.name}</h1>
+                        <p className="leading-relaxed mb-3 text-gray-300">{e.about}</p>
+                        <div className="flex items-center flex-wrap ">
+                          <Link passHref href={e.url} rel="noreferrer" className="text-white inline-flex items-center md:mb-2 lg:mb-0 bg-indigo-500 p-2 w-full rounded-full justify-center hover:text-indigo-100">
+                            View Project
+                            <svg className="w-4 h-4 ml-2" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                              <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                          </Link>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
         <div className='border-t mb-12 w-[80vw] m-auto border-t-gray-600'>
 
         </div>
@@ -218,7 +220,6 @@ const index = () => {
                   </div>
                 </div>
               </Link>
-
             )
           })}
         </div>

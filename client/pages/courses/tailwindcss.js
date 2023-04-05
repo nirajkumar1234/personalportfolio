@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import SEO from '@bradgarropy/next-seo'
 import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
-import ReactMarkdown from 'react-markdown';
-const Tailwindcss = () => {
+const Tailwindcss = (cmtListData) => {
     const [comment, setComment] = useState('');
-    const [commentList, setCommentList] = useState([])
     const handleSubmit = (event) => {
         event.preventDefault();
         if (localStorage.getItem('nkcwebsitedata')) {
@@ -30,23 +28,11 @@ const Tailwindcss = () => {
         else {
             alert("Please login to comment");
         }
-        getComments()
         setComment('');
     };
     function handleCopyClick(code) {
         navigator.clipboard.writeText(code);
     }
-    function getComments() {
-        axios.get('/user/tailwindwithnextjs')
-            .then((data) => {
-                setCommentList(data.data);
-            })
-            .catch((err) => {
-            })
-    }
-    useEffect(() => {
-        getComments()
-    }, [])
     return (
         <>
             <SEO
@@ -100,7 +86,7 @@ const Tailwindcss = () => {
                     <div className='mt-5' style={{ border: "1px solid #ccc", padding: "10px", overflowY: "scroll" }}>
                         <pre style={{ padding: "10px;" }}>
                             <p style={{ fontFamily: "'Courier New', Courier, monospace;", fontSize: "14px;", color: "white" }}>
-                                <ReactMarkdown>*npm install tailwindcss postcss autoprefixer*</ReactMarkdown>
+                                <>*npm install tailwindcss postcss autoprefixer*</>
                             </p>
                         </pre>
                         <button
@@ -292,7 +278,7 @@ export default HomePage
                             Post
                         </button>
                         <div className="mt-4">
-                            {commentList.map(e => (
+                            {cmtListData ? cmtListData?.cmtListData?.map(e => (
                                 <div key={e?._id} className="flex items-start mb-4 border border-gray-900 p-2">
                                     <img
                                         src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
@@ -305,7 +291,8 @@ export default HomePage
                                         <p className="text-gray-500 text-sm">Posted on {e?.createdAt?.slice(0, 10)}</p>
                                     </div>
                                 </div>
-                            ))}
+                            )) :
+                                ''}
                         </div>
                     </form>
                 </div>
@@ -314,5 +301,13 @@ export default HomePage
         </>
     )
 }
-
+export async function getStaticProps() {
+    const cmtList = await axios.get('https://backend.nirajchaurasiya.com/user/tailwindwithnextjs')
+    const cmtListData = cmtList.data;
+    return {
+        props: {
+            cmtListData,
+        },
+    }
+}
 export default Tailwindcss
